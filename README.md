@@ -66,20 +66,12 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## How to use
 
-1/ Tải source code(shop.zip) và database (pizzashop.sql) về
+- You need to turn on XAMPP.
+- Add database into PHPAdmin.
+- Open file .env to change DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD fit with your setting.
+- Open file index in folder public.
 
-2/ Giải nén tệp và chỉnh sửa file .env phù hợp với máy. Vd XAMPP thì edit DB_HOST=127.0.0.1, ....
+## Design by Tran Pham Anh Tuan & To Quoc Thang
 
-3/ Add database vào
-
-
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

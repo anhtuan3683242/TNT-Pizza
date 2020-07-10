@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: mysql
--- Thời gian đã tạo: Th7 07, 2020 lúc 04:25 PM
--- Phiên bản máy phục vụ: 8.0.20
--- Phiên bản PHP: 7.4.6
+-- Host: 127.0.0.1
+-- Generation Time: Jul 07, 2020 at 07:01 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,97 +19,51 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `pizzashop`
+-- Database: `pizzashop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitiet_donhang`
+-- Table structure for table `chitiet_donhang`
 --
 
 CREATE TABLE `chitiet_donhang` (
-  `MaChiTiet` int UNSIGNED NOT NULL,
-  `MaDonDatHang` int DEFAULT NULL,
-  `MaSp` int NOT NULL,
-  `quantity` int NOT NULL COMMENT 'số lượng',
-  `GiaSp` int DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Đang đổ dữ liệu cho bảng `chitiet_donhang`
---
-
-INSERT INTO `chitiet_donhang` (`MaChiTiet`, `MaDonDatHang`, `MaSp`, `quantity`, `GiaSp`, `updated_at`) VALUES
-(38, 36, 5, 1, 349000, '2020-07-01 19:23:35'),
-(39, 36, 9, 1, 90000, '2020-07-01 19:23:35'),
-(40, 37, 8, 1, 120000, '2020-07-01 19:23:57'),
-(41, 37, 13, 1, 69000, '2020-07-01 19:23:57'),
-(42, 38, 5, 1, 349000, '2020-07-03 19:37:15'),
-(43, 38, 6, 1, 219000, '2020-07-03 19:37:15'),
-(44, 38, 12, 1, 29000, '2020-07-03 19:37:15'),
-(45, 38, 11, 2, 59000, '2020-07-03 19:37:15'),
-(46, 39, 11, 1, 59000, '2020-07-03 19:44:51'),
-(47, 39, 10, 1, 110000, '2020-07-03 19:44:51'),
-(48, 39, 5, 2, 349000, '2020-07-03 19:44:51'),
-(49, 39, 6, 1, 219000, '2020-07-03 19:44:51'),
-(50, 40, 5, 1, 349000, '2020-07-03 19:47:46'),
-(51, 41, 1, 1, 200000, '2020-07-03 19:48:05'),
-(52, 42, 6, 1, 219000, '2020-07-03 19:49:27'),
-(53, 42, 8, 1, 120000, '2020-07-03 19:49:27'),
-(54, 43, 13, 1, 69000, '2020-07-03 19:51:01'),
-(55, 44, 8, 1, 120000, '2020-07-05 21:52:41'),
-(56, 44, 12, 1, 29000, '2020-07-05 21:52:41'),
-(57, 44, 9, 1, 90000, '2020-07-05 21:52:41'),
-(58, 44, 10, 1, 110000, '2020-07-05 21:52:41');
+  `MaChiTiet` int(11) UNSIGNED NOT NULL,
+  `MaDonDatHang` int(11) DEFAULT NULL,
+  `MaSp` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL COMMENT 'số lượng',
+  `GiaSp` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
-  `id_customer` int UNSIGNED NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phone_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `note` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id_customer` int(11) UNSIGNED NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `customer`
---
-
-INSERT INTO `customer` (`id_customer`, `name`, `gender`, `email`, `address`, `phone_number`, `note`, `updated_at`) VALUES
-(46, 'abc', 'nam', 'anhtuan3683242@gmail.com', '15', '111111', 'notthing', '2020-07-01 15:33:22'),
-(47, 'abc', 'nam', 'anhtuan3683242@gmail.com', 'aaaa', '0947834056', '1111', '2020-07-01 19:12:47'),
-(48, 'Trần Phạm Anh Tuấn', 'nam', 'nh0xla0_1999@yahoo.com.vn', '15', '111111', 'aaaaaaa', '2020-07-01 19:15:54'),
-(49, 'Trần Phạm Anh Tuấn', 'nam', 'nh0xla0_1999@yahoo.com.vn', '15', '0947834056', 'aaaa', '2020-07-01 19:18:09'),
-(50, 'Trần Phạm Anh Tuấn', 'nam', 'anhtuan3683242@gmail.com', '15', '0947834056', 'xxzzz', '2020-07-01 19:23:35'),
-(51, 'abc', 'nam', 'anhtuan3683242@gmail.com', '15', '111111111111111', 'aaaa', '2020-07-01 19:23:57'),
-(52, 'Trần Phạm Anh Tuấn', 'nam', 'toquocthang2209@gmail.com', '15', '09478340561', 'aaaaa', '2020-07-03 19:37:15'),
-(53, 'To quoc thang', 'nữ', 'toquocthang2209@gmail.com', '15', '0947834056', 'aaa', '2020-07-03 19:44:51'),
-(54, 'Trần Phạm Anh Tuấn', 'nam', 'anhtuan3683242@gmail.com', '15', '0123456789', 'aaaa', '2020-07-03 19:47:46'),
-(55, 'Trần Phạm Anh Tuấn', 'nam', 'anhtuan3683242@gmail.com', '15', '111111', '1111', '2020-07-03 19:48:05'),
-(56, 'Trần Phạm Anh Tuấn', 'nam', 'anhtuan3683242@gmail.com', '15', '09478340561', 'qqqq', '2020-07-03 19:49:27'),
-(57, 'Trần Phạm Anh Tuấn', 'nam', 'nh0xla0_1999@yahoo.com.vn', 'aaaaa', '111111111111111', 'aaa', '2020-07-03 19:51:01'),
-(58, 'Trần Phạm Anh Tuấn', 'nữ', 'toquocthang2209@gmail.com', '15', '0947834056', '00011111111', '2020-07-05 21:52:41');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `datban`
+-- Table structure for table `datban`
 --
 
 CREATE TABLE `datban` (
-  `MaBan` int UNSIGNED NOT NULL,
+  `MaBan` int(11) UNSIGNED NOT NULL,
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `gender` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -116,12 +71,12 @@ CREATE TABLE `datban` (
   `note` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `NgayDat` varchar(200) DEFAULT NULL,
   `person` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'số người dự kiến đặt',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `datban`
+-- Dumping data for table `datban`
 --
 
 INSERT INTO `datban` (`MaBan`, `name`, `gender`, `email`, `phone_number`, `note`, `NgayDat`, `person`, `created_at`, `updated_at`) VALUES
@@ -132,46 +87,35 @@ INSERT INTO `datban` (`MaBan`, `name`, `gender`, `email`, `phone_number`, `note`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `donhang`
+-- Table structure for table `donhang`
 --
 
 CREATE TABLE `donhang` (
-  `MaDonDatHang` int UNSIGNED NOT NULL,
-  `id_customer` int DEFAULT NULL,
+  `MaDonDatHang` int(11) UNSIGNED NOT NULL,
+  `id_customer` int(11) DEFAULT NULL,
   `NgayTao` date DEFAULT NULL,
-  `TongTien` int DEFAULT NULL,
+  `TongTien` int(11) DEFAULT NULL,
   `payment` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'hình thức thanh toán',
   `note` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Đang đổ dữ liệu cho bảng `donhang`
---
-
-INSERT INTO `donhang` (`MaDonDatHang`, `id_customer`, `NgayTao`, `TongTien`, `payment`, `note`, `created_at`, `updated_at`) VALUES
-(40, 54, '2020-07-03', 349000, 'COD', 'aaaa', '2020-07-03 19:47:46', '2020-07-03 19:47:46'),
-(41, 55, '2020-07-03', 200000, 'ATM', '1111', '2020-07-03 19:48:05', '2020-07-03 19:48:05'),
-(42, 56, '2020-07-03', 339000, 'COD', 'qqqq', '2020-07-03 19:49:27', '2020-07-03 19:49:27'),
-(43, 57, '2020-07-03', 69000, 'COD', 'aaa', '2020-07-03 19:51:01', '2020-07-03 19:51:01'),
-(44, 58, '2020-07-05', 349000, 'COD', '00011111111', '2020-07-05 21:52:41', '2020-07-05 21:52:41');
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loaisanpham`
+-- Table structure for table `loaisanpham`
 --
 
 CREATE TABLE `loaisanpham` (
-  `MaLoaiSP` int NOT NULL,
+  `MaLoaiSP` int(11) NOT NULL,
   `TenLoai` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `loaisanpham`
+-- Dumping data for table `loaisanpham`
 --
 
 INSERT INTO `loaisanpham` (`MaLoaiSP`, `TenLoai`, `created_at`, `updated_at`) VALUES
@@ -184,35 +128,23 @@ INSERT INTO `loaisanpham` (`MaLoaiSP`, `TenLoai`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `TenSp` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MaLoaiSP` int NOT NULL,
-  `MoTa` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `GiaSp` int UNSIGNED DEFAULT NULL,
+  `MaLoaiSP` int(11) NOT NULL,
+  `MoTa` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GiaSp` int(11) UNSIGNED DEFAULT NULL,
   `Hinh` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `new` tinyint DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `new` tinyint(4) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `TenSp`, `MaLoaiSP`, `MoTa`, `GiaSp`, `Hinh`, `new`, `created_at`, `updated_at`) VALUES
@@ -236,17 +168,17 @@ INSERT INTO `products` (`id`, `TenSp`, `MaLoaiSP`, `MoTa`, `GiaSp`, `Hinh`, `new
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `slide`
+-- Table structure for table `slide`
 --
 
 CREATE TABLE `slide` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `link` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `slide`
+-- Dumping data for table `slide`
 --
 
 INSERT INTO `slide` (`id`, `link`, `image`) VALUES
@@ -258,146 +190,133 @@ INSERT INTO `slide` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int UNSIGNED NOT NULL,
-  `full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `full_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `phone`, `address`, `remember_token`, `created_at`, `updated_at`) VALUES
 (6, 'Hương Hương', 'huonghuong08.php@gmail.com', '$2y$10$rGY4KT6ZSMmLnxIbmTXrsu2xdgRxm8x0UTwCyYCAzrJ320kYheSRq', '23456789', 'Hoàng Diệu 2', NULL, '2017-03-23 07:17:33', '2017-03-23 07:17:33'),
-(7, 'Tuan Tuan', 'anhtuan3683242@gmail.com', '$2y$10$nkE8ZzfQ5gbZuQNKy7Xg1.uDGuDfQiatR148.cBLyrPexCcL/Q4je', '0947834056', '1041/62/20 Trần Xuân Soạn', NULL, '2020-07-06 21:24:15', '2020-07-06 21:24:15'),
-(8, 'Thang Thang', 'toquocthang2209@gmail.com', '$2y$10$YhpnOxU7y8K7L5t9k/ddx.7xoV85BwZq5mWPFOEnmemkuDE31yDYW', '112311', '11111111 abc', NULL, '2020-07-07 20:18:07', '2020-07-07 20:18:07');
+(7, 'to quoc thang', 'fdf@gmailcom', '$2y$10$j3iPlW8T88r97wG9mzfdS.IVpMf8wPkSdzNQQVoqPMbuKEMJVV6i2', '123456', 'Street Address', NULL, '2020-07-07 17:00:40', '2020-07-07 17:00:40');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `chitiet_donhang`
+-- Indexes for table `chitiet_donhang`
 --
 ALTER TABLE `chitiet_donhang`
   ADD PRIMARY KEY (`MaChiTiet`);
 
 --
--- Chỉ mục cho bảng `customer`
+-- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`);
 
 --
--- Chỉ mục cho bảng `datban`
+-- Indexes for table `datban`
 --
 ALTER TABLE `datban`
   ADD PRIMARY KEY (`MaBan`);
 
 --
--- Chỉ mục cho bảng `donhang`
+-- Indexes for table `donhang`
 --
 ALTER TABLE `donhang`
   ADD PRIMARY KEY (`MaDonDatHang`);
 
 --
--- Chỉ mục cho bảng `loaisanpham`
+-- Indexes for table `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
   ADD PRIMARY KEY (`MaLoaiSP`);
 
 --
--- Chỉ mục cho bảng `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `slide`
+-- Indexes for table `slide`
 --
 ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `chitiet_donhang`
+-- AUTO_INCREMENT for table `chitiet_donhang`
 --
 ALTER TABLE `chitiet_donhang`
-  MODIFY `MaChiTiet` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `MaChiTiet` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT cho bảng `customer`
+-- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_customer` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT cho bảng `datban`
+-- AUTO_INCREMENT for table `datban`
 --
 ALTER TABLE `datban`
-  MODIFY `MaBan` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaBan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `donhang`
+-- AUTO_INCREMENT for table `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `MaDonDatHang` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `MaDonDatHang` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT cho bảng `loaisanpham`
+-- AUTO_INCREMENT for table `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
-  MODIFY `MaLoaiSP` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaLoaiSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `slide`
+-- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
